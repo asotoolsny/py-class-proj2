@@ -3,7 +3,7 @@ def print_links(links):
         print(link.text.strip())
 
 
-def find_element_by_title_ignore_case(elements, search_text, ignore_case=True, ignore_white_space=False):
+def find_element_by_title(elements, search_text, ignore_case=True, ignore_white_space=False):
     if ignore_case:
         search_text = search_text.lower()
 

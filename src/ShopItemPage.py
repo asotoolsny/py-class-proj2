@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from WebDriverContainer import WebDriverContainer
-from utils import find_element_by_title_ignore_case
+from utils import find_element_by_title
 
 
 class ShopItemPage(WebDriverContainer):
@@ -21,7 +21,7 @@ class ShopItemPage(WebDriverContainer):
             self.__color_container_selector, 20)
         color_options = self._try_find_elements_of(
             color_container, self.__color_option_selector, 20)
-        selected_color_option = find_element_by_title_ignore_case(
+        selected_color_option = find_element_by_title(
             color_options, color)
         selected_color_option.click()
 
@@ -29,7 +29,7 @@ class ShopItemPage(WebDriverContainer):
             self.__size_container_selector, 20)
         size_options = self._try_find_elements_of(
             size_container, self.__size_option_selector, 20)
-        selected_size_option = find_element_by_title_ignore_case(
+        selected_size_option = find_element_by_title(
             size_options, size)
         selected_size_option.click()
 
