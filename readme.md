@@ -4,7 +4,7 @@ Required:
 * [Python 3](python.org)
 * ```pip```
 
-Additionally, you need to install ```selenium``` with ```pip``` and download [chromedriver](https://chromedriver.storage.googleapis.com/index.html). Please see [https://selenium-python.readthedocs.io/installation.html](https://selenium-python.readthedocs.io/installation.html) for more details.
+Additionally, you need to install ```selenium``` with ```pip``` and download [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) or [geckodriver](https://github.com/mozilla/geckodriver/releases). Please see [https://selenium-python.readthedocs.io/installation.html](https://selenium-python.readthedocs.io/installation.html) for more details.
 
 ## Code
 
