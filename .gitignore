@@ -1,5 +1,5 @@
 __pycache__
-geckodriver.exe
-geckodriver.log
+*.exe
+*.log
 
 .vscode/.ropeproject
