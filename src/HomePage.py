@@ -15,7 +15,6 @@ class HomePage(WebDriverContainer):
         page_container = self._try_find_element(
             self.__page_container_selector, 20)
 
-        # should find below section links
         links = self._try_find_elements_of(
             page_container, self.__link_selector, 20)
 

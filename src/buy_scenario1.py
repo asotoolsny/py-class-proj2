@@ -34,4 +34,10 @@ item_link = find_element_by_text(
 
 # 4) load the given item and add it to the cart
 item_page = shop.load_item_page(item_link)
-item_page.add_to_cart("Green", "M")
+
+available_colors = item_page.available_color_names
+available_sizes = item_page.available_size_names
+
+item_page.pick_color(available_colors[0])
+item_page.pick_size(available_sizes[0])
+item_page.click_add_to_cart()
