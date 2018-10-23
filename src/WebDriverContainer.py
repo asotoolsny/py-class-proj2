@@ -1,3 +1,5 @@
+import typing
+
 from selenium import webdriver
 from selenium.common.exceptions import *
 from selenium.webdriver.support import expected_conditions
@@ -8,7 +10,10 @@ class WebDriverContainer():
     def __init__(self, driver):
         self._driver = driver
 
-    def _load_url(self, url):
+    def screenshot(self, path: str):
+        self._driver.save_screenshot(path)
+
+    def _load_url(self, url: str):
         self._driver.get(url)
 
     def _try_find_element(self, by_query, timeout=10):

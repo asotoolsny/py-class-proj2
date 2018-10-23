@@ -3,6 +3,18 @@ from typing import Any, Iterable, List, Type
 from selenium.webdriver.remote.webelement import WebElement
 
 
+def stringify_links(links: List[Any]):
+    tuples = []
+    for link in links:
+        link_tuple = (link.text.strip(), link.get_attribute("href"))
+        tuples.append(link_tuple)
+
+    def stringify_link(link_tuple):
+        return "({}: {})".format(link_tuple[0], link_tuple[1])
+
+    return ",".join(list(map(stringify_link, tuples)))
+
+
 def filter_by_text(elements: List[Any], search_text: str, ignore_case=True, ignore_white_space=False):
     return filter_by(elements, lambda element: element.text, search_text, ignore_case, ignore_white_space)
 

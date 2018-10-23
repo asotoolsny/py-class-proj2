@@ -5,7 +5,7 @@ from WebDriverContainer import WebDriverContainer
 
 class HomePage(WebDriverContainer):
     __page_container_selector = (By.CLASS_NAME, "navigation")
-    __link_selector = (By.CSS_SELECTOR, "li.level0.ui-menu-item")
+    __link_selector = (By.CSS_SELECTOR, "li.level0.ui-menu-item > a")
 
     def __init__(self, driver):
         super().__init__(driver)

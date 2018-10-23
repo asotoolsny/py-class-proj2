@@ -6,7 +6,7 @@ TIME_FMT = "%Y/%m/%d %H:%M:%S"
 
 
 def log(message: str, message_type: str):
-    line = "[{}] {}: {}".format(strftime(TIME_FMT), message_type, message)
+    line = "[{}] {}: {}\n".format(strftime(TIME_FMT), message_type, message)
     output = open(LOG_PATH, "a")
     output.write(line)
     output.close()
