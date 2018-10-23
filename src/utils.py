@@ -2,7 +2,7 @@ from typing import List, Type, Iterable, Any
 from selenium.webdriver.remote.webelement import WebElement
 
 
-def print_links(links: List[str]):
+def print_links(links: List[Any]):
     for link in links:
         print(link.text.strip())
 
