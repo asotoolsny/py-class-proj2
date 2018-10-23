@@ -1,31 +1,19 @@
-from typing import List, Type, Iterable, Any
+from typing import Any, Iterable, List, Type
+
 from selenium.webdriver.remote.webelement import WebElement
 
 
-def print_links(links: List[Any]):
-    for link in links:
-        print(link.text.strip())
+def filter_by_text(elements: List[Any], search_text: str, ignore_case=True, ignore_white_space=False):
+    return filter_by(elements, lambda element: element.text, search_text, ignore_case, ignore_white_space)
 
 
-def find_element_by_title(elements, search_text, ignore_case=True, ignore_white_space=False):
-    return filter_by_attr(elements, "option-label", search_text, ignore_case, ignore_white_space)
+def filter_by_attr(elements: List[Any], attr: str, search_text: str, ignore_case=True, ignore_white_space=False):
+    return filter_by(elements, lambda element: element.get_attribute(attr), search_text, ignore_case, ignore_white_space)
 
 
-def find_element_by_text(elements, search_text, ignore_case=True, ignore_white_space=False):
-    return filter_by_text(elements, search_text, ignore_case, ignore_white_space)
-
-
-def filter_by_attr(elements, attr, search_text, ignore_case=True, ignore_white_space=False):
+def filter_by(elements: List[Any], el_mapper, search_text: str, ignore_case=True, ignore_white_space=False):
     for element in elements:
-        if are_strings_equal(element.get_attribute(attr), search_text, ignore_case, ignore_white_space):
-            return element
-
-    return None
-
-
-def filter_by_text(elements, search_text: str, ignore_case=True, ignore_white_space=False):
-    for element in elements:
-        if are_strings_equal(element.text, search_text, ignore_case, ignore_white_space):
+        if are_strings_equal(el_mapper(element), search_text, ignore_case, ignore_white_space):
             return element
 
     return None

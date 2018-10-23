@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
+from utils import filter_by_attr
 from WebDriverContainer import WebDriverContainer
-from utils import find_element_by_title
 
 
 class ShopItemPageModel(WebDriverContainer):
@@ -41,6 +41,8 @@ class ShopItemPageModel(WebDriverContainer):
 
 
 class ShopItemPage(WebDriverContainer):
+    __title_attr__ = "option-label"
+
     def __init__(self, driver):
         super().__init__(driver)
         self.__page = ShopItemPageModel(driver)
@@ -49,7 +51,7 @@ class ShopItemPage(WebDriverContainer):
     def available_color_names(self):
         colors = []
         for color_option in self.__page.available_colors:
-            colors.append(color_option.get_attribute("option-label"))
+            colors.append(color_option.get_attribute(self.__title_attr__))
 
         return colors
 
@@ -57,18 +59,18 @@ class ShopItemPage(WebDriverContainer):
     def available_size_names(self):
         sizes = []
         for size_option in self.__page.available_sizes:
-            sizes.append(size_option.get_attribute("option-label"))
+            sizes.append(size_option.get_attribute(self.__title_attr__))
 
         return sizes
 
     def pick_color(self, color):
-        selected_color_option = find_element_by_title(
-            self.__page.available_colors, color)
+        selected_color_option = filter_by_attr(
+            self.__page.available_colors, self.__title_attr__, color)
         selected_color_option.click()
 
     def pick_size(self, size):
-        selected_size_option = find_element_by_title(
-            self.__page.available_sizes, size)
+        selected_size_option = filter_by_attr(
+            self.__page.available_sizes, self.__title_attr__, size)
         selected_size_option.click()
 
     def click_add_to_cart(self):
