@@ -45,12 +45,12 @@ class ShopItemPage(WebDriverContainer):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.__page = ShopItemPageModel(driver)
+        self.__page__ = ShopItemPageModel(driver)
 
     @property
     def available_color_names(self):
         colors = []
-        for color_option in self.__page.available_colors:
+        for color_option in self.__page__.available_colors:
             colors.append(color_option.get_attribute(self.__title_attr__))
 
         return colors
@@ -58,20 +58,20 @@ class ShopItemPage(WebDriverContainer):
     @property
     def available_size_names(self):
         sizes = []
-        for size_option in self.__page.available_sizes:
+        for size_option in self.__page__.available_sizes:
             sizes.append(size_option.get_attribute(self.__title_attr__))
 
         return sizes
 
     def pick_color(self, color):
         selected_color_option = filter_by_attr(
-            self.__page.available_colors, self.__title_attr__, color)
+            self.__page__.available_colors, self.__title_attr__, color)
         selected_color_option.click()
 
     def pick_size(self, size):
         selected_size_option = filter_by_attr(
-            self.__page.available_sizes, self.__title_attr__, size)
+            self.__page__.available_sizes, self.__title_attr__, size)
         selected_size_option.click()
 
     def click_add_to_cart(self):
-        self.__page.btn_add_to_cart.click()
+        self.__page__.btn_add_to_cart.click()

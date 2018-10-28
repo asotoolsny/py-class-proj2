@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 from HomePage import HomePage
 from ShopItemPage import ShopItemPage
+from ShopSearchPage import ShopSearchPage
 from ShopSectionPage import ShopSectionPage
 from ShopSubSectionPage import ShopSubSectionPage
 from WebDriverContainer import WebDriverContainer
@@ -9,6 +11,7 @@ from WebDriverContainer import WebDriverContainer
 
 class ShopTester(WebDriverContainer):
     _home_page_url = "http://magento2-demo.nexcess.net"
+    _search_textbox_selector = (By.NAME, "q")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -28,3 +31,12 @@ class ShopTester(WebDriverContainer):
     def load_item_page(self, item_link):
         item_link.click()
         return ShopItemPage(self._driver)
+
+    def search_item(self, value: str):
+        search_textbox = self._try_find_element(
+            self._search_textbox_selector, 20)
+        search_textbox.clear()
+        search_textbox.send_keys(value)
+        search_textbox.send_keys(Keys.ENTER)
+
+        return ShopSearchPage(self._driver)

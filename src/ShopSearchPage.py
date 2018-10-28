@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from WebDriverContainer import WebDriverContainer
 
 
-class ShopSubSectionPageModel(WebDriverContainer):
+class ShopSearchPageModel(WebDriverContainer):
     __items_container_selector = (
         By.CSS_SELECTOR, "div.products.wrapper.grid.products-grid")
     __link_selector = (By.CSS_SELECTOR, ".product-item-link")
@@ -22,10 +22,10 @@ class ShopSubSectionPageModel(WebDriverContainer):
         return links
 
 
-class ShopSubSectionPage(WebDriverContainer):
+class ShopSearchPage(WebDriverContainer):
     def __init__(self, driver):
         super().__init__(driver)
-        self.__page__ = ShopSubSectionPageModel(driver)
+        self.__page__ = ShopSearchPageModel(driver)
 
     @property
     def item_links(self):
