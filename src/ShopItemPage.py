@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 from utils import filter_by_attr
 from WebDriverContainer import WebDriverContainer
@@ -10,6 +11,8 @@ class ShopItemPageModel(WebDriverContainer):
 
     __size_container_selector = (By.CSS_SELECTOR, ".swatch-attribute.size")
     __size_option_selector = (By.CSS_SELECTOR, ".swatch-option.text")
+
+    __quantity_selector = (By.CSS_SELECTOR, "input#qty")
 
     __btn_add_to_cart_selector = (By.CSS_SELECTOR, "#product-addtocart-button")
 
@@ -35,9 +38,12 @@ class ShopItemPageModel(WebDriverContainer):
         return size_options
 
     @property
+    def quantity(self):
+        return self._try_find_element(self.__quantity_selector, 20)
+
+    @property
     def btn_add_to_cart(self):
-        return self._try_find_element(
-            self.__btn_add_to_cart_selector, 20)
+        return self._try_find_element(self.__btn_add_to_cart_selector, 20)
 
 
 class ShopItemPage(WebDriverContainer):
@@ -72,6 +78,11 @@ class ShopItemPage(WebDriverContainer):
         selected_size_option = filter_by_attr(
             self.__page__.available_sizes, self.__title_attr__, size)
         selected_size_option.click()
+
+    def pick_quantity(self, quantity):
+        quantity_textbox = self.__page__.quantity
+        quantity_textbox.clear()
+        quantity_textbox.send_keys(str(quantity))
 
     def click_add_to_cart(self):
         self.__page__.btn_add_to_cart.click()
