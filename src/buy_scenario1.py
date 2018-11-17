@@ -5,7 +5,7 @@ from ShopTester import ShopTester
 from utils import stringify_links, filter_by_text
 
 # create a WebDriver instance
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 shop = ShopTester(driver)
 
 # 1) load home page and retrieve section links
