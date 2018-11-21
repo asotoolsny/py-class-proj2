@@ -17,7 +17,7 @@ shop = ShopTester(driver)
 # 1) Load homepage and retrieve section links
 home_page = shop.load_home_page()
 section_links = home_page.section_links
-home_page.screenshot("./py-class-proj2-master/homepage_tableRate.png")
+home_page.screenshot("./sessions/screenshots/homepage_tableRate.png")
 
 # Select a section
 section_name = "Gear"
@@ -42,9 +42,9 @@ item_link = filter_by_text(item_links, item_name)
 # 4) Load the given item and add it to the cart
 item_page = shop.load_item_page(item_link)
 
-item_page.screenshot("./py-class-proj2-master/itempage_tableRate.png")
+item_page.screenshot("./sessions/screenshots/itempage_tableRate.png")
 
-random_nr = random.randint(1,9)
+random_nr = random.randint(1, 9)
 item_page.pick_quantity(random_nr)
 item_page.click_add_to_cart()
 item_page.click_checkout_box()
@@ -74,4 +74,5 @@ item_page.click_place_order_button()
 time.sleep(4)
 
 # Take Screenshot of  Your Confirmation Number
-item_page.screenshot("./py-class-proj2-master/Order_Confirmation_table_rate.png")
+item_page.screenshot(
+    "./sessions/screenshots/Order_Confirmation_table_rate.png")
