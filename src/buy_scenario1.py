@@ -58,5 +58,6 @@ logger.log("Available sizes: {}".format(
 item_page.screenshot("./sessions/screenshots/item_page.png")
 
 item_page.pick_color(available_colors[0])
-item_page.pick_size(available_sizes[0])
+item_page.pick_size(available_sizes[-1])
+item_page.pick_quantity(2)
 item_page.click_add_to_cart()
