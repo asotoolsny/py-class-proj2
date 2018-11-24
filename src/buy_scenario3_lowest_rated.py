@@ -11,8 +11,7 @@ import util_excel as utex
 import ShopItemPage 
 
 # Create a webdriver instance
-driver = webdriver.Chrome()
-driver.maximize_window()
+driver = webdriver.Chrome(executable_path="/Users/ersekrem/Documents/ClassAso/chromedriver")
 
 sleep = time.sleep(3)
 
@@ -54,7 +53,7 @@ if min(items_rating) == current_min_number:
         lowest_rated_item_locator = driver.find_element(By.LINK_TEXT, dict1[current_min_number])
         lowest_rated_item_locator.click()
         print("Lowest rated item is selected!")
-        driver.save_screenshot("C:\PythonClass/py-class-proj2-master/screenshots/lowest_item.png")
+        driver.save_screenshot("./py-class-proj2-master/screenshots/lowest_item.png")
         sleep
 
 # Type Quantity
@@ -65,19 +64,19 @@ quantity_locator.send_keys(random_nr)
 print("Quantity is added")
 sleep
 
-# # Click Add to Cart
-# add_to_cart_locator = driver.find_element_by_id("product-addtocart-button")
-# add_to_cart_locator.click()
-# print("Item is sent to the Shopping Cart")
-# sleep
+# Click Add to Cart
+add_to_cart_locator = driver.find_element_by_id("product-addtocart-button")
+add_to_cart_locator.click()
+print("Item is sent to the Shopping Cart")
+sleep
 
-# # Click Checkout Box
-# checkout_box_selector = (By.CSS_SELECTOR, "a.action.showcart")
-# checkout_box_locator = driver.find_element(checkout_box_selector)
-# checkout_box_locator.click()
-# sleep
+# Click Checkout Box
+checkout_box_selector = (By.CSS_SELECTOR, "a.action.showcart")
+checkout_box_locator = driver.find_element(checkout_box_selector)
+checkout_box_locator.click()
+sleep
 
-# # Click Go to Checkout    
-# go_to_checkout_selector = (By.CSS_SELECTOR, "button#top-cart-btn-checkout")
-# go_to_checkout_locator = driver.find_element(go_to_checkout_selector)
-# go_to_checkout_locator.click()
+# Click Go to Checkout    
+go_to_checkout_selector = (By.CSS_SELECTOR, "button#top-cart-btn-checkout")
+go_to_checkout_locator = driver.find_element(go_to_checkout_selector)
+go_to_checkout_locator.click()

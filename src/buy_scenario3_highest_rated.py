@@ -11,8 +11,8 @@ import util_excel as utex
 import ShopItemPage 
 
 # Create a webdriver instance
-driver = webdriver.Chrome()
-driver.maximize_window()
+driver = webdriver.Chrome(executable_path="/Users/ersekrem/Documents/ClassAso/chromedriver")
+#driver.maximize_window()
 
 sleep = time.sleep(5)
 
@@ -54,7 +54,7 @@ if max(items_rating) == current_max_number:
         highest_rated_item_locator = driver.find_element(By.LINK_TEXT, dict1[current_max_number])
         highest_rated_item_locator.click()
         print("Highest rated item is selected!")
-        driver.save_screenshot("C:\PythonClass/py-class-proj2-master/screenshots/highest_item.png")
+        driver.save_screenshot("./py-class-proj2-master/screenshots/highest_item.png")
         sleep
 
 # #Select Color
