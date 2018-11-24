@@ -8,3 +8,6 @@ __pycache__
 # session related files: screenshots, logs
 sessions
 .DS_Store
+
+input/~$magento2.xlsx
+.vscode/settings.json
