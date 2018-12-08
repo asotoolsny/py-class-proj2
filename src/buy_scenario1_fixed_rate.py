@@ -80,16 +80,16 @@ item_page.click_go_to_checkout()
 
 # Go to the next step and fill out the form
 first_row = utex.read_shipping_values()[0]
-# item_page.type_email_address(first_row["username"])
+item_page.type_email_address(first_row.user_name)
 item_page.type_firstname(first_row.first_name)
 item_page.type_lastname(first_row.last_name)
-# item_page.type_company(first_row["company"])
-# item_page.type_street(first_row["street"])
-# item_page.type_city(first_row["city"])
-# item_page.select_state(first_row["state"])
-# item_page.type_postcode(first_row["postcode"])
-# item_page.select_country(first_row["country_id"])
-# item_page.type_phonenumber(first_row["telephone"])
+item_page.type_company(first_row.company)
+item_page.type_street(first_row.street)
+item_page.type_city(first_row.city)
+item_page.select_state(first_row.state)
+item_page.type_postcode(first_row.postcode)
+item_page.select_country(first_row.country_id)
+item_page.type_phonenumber(first_row.telephone)
 
 # Select Shipping Method
 item_page.click_flat_rate()
