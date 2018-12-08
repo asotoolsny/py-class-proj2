@@ -6,12 +6,44 @@ class ShippingInfo():
         self.__row = row
 
     @property
+    def user_name(self):
+        return self.__row["username"]
+
+    @property
     def first_name(self):
         return self.__row["firstname"]
 
     @property
     def last_name(self):
         return self.__row["lastname"]
+
+    @property
+    def company(self):
+        return self.__row["company"]
+    
+    @property
+    def street(self):
+        return self.__row["street"]
+
+    @property
+    def city(self):
+        return self.__row["city"]
+
+    @property
+    def state(self):
+        return self.__row["state"]
+
+    @property
+    def postcode(self):
+        return self.__row["postcode"]
+
+    @property
+    def country_id(self):
+        return self.__row["country_id"]
+
+    @property
+    def telephone(self):
+        return self.__row["telephone"]
 
 
 def read_row_values(row):
