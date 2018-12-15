@@ -3,9 +3,9 @@ import logger
 import time
 import random
 
-from ShopTester import ShopTester
-from utils import stringify_links, filter_by_text
-import util_excel as utex
+from shop.ShopTester import ShopTester
+from utility.utils import stringify_links, filter_by_text
+import utility.util_excel as utex
 
 # create a WebDriver instance
 driver = webdriver.Chrome()
